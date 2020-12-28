@@ -17,7 +17,8 @@ pipeline {
         stage('Test') {
             
             steps {
-                sh 'mvn install'
+
+                sh 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/ && mvn install'
             }
         }
 
