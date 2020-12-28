@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    node ( test )
     tools {
         jdk 'jdk10'
         maven 'M3'
