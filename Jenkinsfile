@@ -1,9 +1,7 @@
 pipeline {
     agent any
-    node ( test )
     tools {
-        jdk 'jdk10'
-        maven 'M3'
+        
     }
 
     environment {
@@ -12,18 +10,21 @@ pipeline {
 
     stages {
         stage('Prepare') {
+            agent { label 'test' }
             steps {
                 checkout scm
             }
         }
 
         stage('Test') {
+            agent { label 'test' }
             steps {
                 sh 'mvn install'
             }
         }
 
         stage('QA') {
+            agent { label 'test' }
             steps {
                 withSonarQubeEnv('sonar') {
                     script {
