@@ -25,11 +25,10 @@ pipeline {
         stage('QA') {
             
             steps {
-                withSonarQubeEnv('sonar') {
-                    script {
+                
                         echo "test"
-                    }
-                }
+                   
+               
             }
         }
     }
